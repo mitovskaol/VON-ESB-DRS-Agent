@@ -1,0 +1,80 @@
+issuers:
+  esbdrs:
+    name: BC Employment Services Branch
+    abbreviation: BCESB
+    url: https://www2.gov.bc.ca/gov/TBD
+    email: TBD@gov.bc.ca
+    logo_path: ../assets/img/tbd-logo-square.jpg
+
+    connection:
+      type: TheOrgBook
+      api_url: $TOB_API_URL
+      sign_target: false
+
+    wallet:
+      name: ${POSTGRESQL_WALLET_NAME:-bcesb_issuer}
+      seed: $WALLET_SEED_BCESB
+      type: $WALLET_TYPE
+      params:
+        storage_config:
+          url: "$POSTGRESQL_WALLET_HOST:$POSTGRESQL_WALLET_PORT"
+      access_creds:
+        key: $WALLET_ENCRYPTION_KEY
+        storage_credentials:
+          account: $POSTGRESQL_WALLET_USER
+          password: $POSTGRESQL_WALLET_PASSWORD
+          admin_account: ${POSTGRESQL_WALLET_ADMIN_USER:-postgres}
+          admin_password: $POSTGRESQL_WALLET_ADMIN_PASSWORD
+        key_derivation_method: ARGON2I_MOD
+
+    credential_types:
+      - description: Foreign Worker Registration
+        schema: foreign-worker-registration.employment-services
+        issuer_url: $APPLICATION_URL_DRS
+        credential:
+          effective_date:
+            input: effective_date
+            from: claim
+          inactive:
+            input: registration_status
+            from: claim
+            processor:
+              - bcgov.entity_status.is_historical
+        topic:
+          source_id:
+            input: registration_id
+            from: claim
+          type:
+            input: foreign-worker-registration
+            from: value
+        mapping:
+          - model: category
+            fields:
+              type:
+                input: registration_status
+                from: value
+              value:
+                input: registration_status
+                from: claim
+          - model: attribute
+            fields:
+              type:
+                input: registration_status_effective
+                from: value
+              format:
+                input: datetime
+                from: value
+              value:
+                input: registration_status_effective
+                from: claim
+          - model: attribute
+            fields:
+              type:
+                input: registration_status_expiry
+                from: value
+              format:
+                input: datetime
+                from: value
+              value:
+                input: registration_status_expiry
+                from: claim

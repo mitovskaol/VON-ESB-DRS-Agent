@@ -1,0 +1,18 @@
+- name: foreign-worker-registration.employment-services
+  version: '1.0.1'
+  attributes:
+    registration_id:
+      description: Unique identifer assigned to entity by registrar
+      required: Y
+    registration_status:
+      description: Status of the registration (ACTive or HIStorical)
+      required: Y
+    registration_status_effective:
+      description: Date status became/becomes effective
+      required: Y
+    registration_status_expiry:
+      description: Date status will expire
+      required: N
+    effective_date:
+      description: Date Credential is effective
+      required: Y

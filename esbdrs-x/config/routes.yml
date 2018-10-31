@@ -1,0 +1,40 @@
+forms:
+  bcesb-drs:
+    path: /esbdrs/registration
+    type: issue-credential
+    schema_name: foreign-worker-registration.employment-services
+    page_title: BC Employment Standards Branch
+    title: Foreign Worker Registration
+    template: bcgov.index.html
+    description: >
+      BC Employment Standards Branch ... TBD.
+    explanation: Use the form below to register for foreign workers.
+
+    js_includes:
+      - src: js/bc_registries.js
+
+    fields:
+      - name: registration_id
+        label: Company Number
+        type: text
+        required: true
+      - name: registration_status
+        label: Registration Status
+        type: select
+        options:
+          - ACT
+          - HIS
+        required: true
+      - name: registration_status_effective
+        label: Registration Effecive Date
+        type: date
+        required: true
+      - name: registration_status_expiry
+        label: Registration Expiry Date
+        type: date
+        required: false
+
+    mapping:
+        - name: effective_date
+          from: helper
+          source: now

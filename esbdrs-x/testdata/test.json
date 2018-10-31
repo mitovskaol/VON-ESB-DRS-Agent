@@ -1,0 +1,13 @@
+[
+    {
+        "attributes": {
+            "registration_id": "FM0367191",
+            "registration_status": "ACT",
+            "registration_status_effective": "2004-03-06T08:00:00+00:00",
+            "registration_status_expiry": "2024-03-06T08:00:00+00:00",
+            "effective_date": "2004-03-06T08:00:00+00:00"
+        },
+        "schema": "foreign-worker-registration.employment-services",
+        "version": "1.0.1"
+    }
+]
