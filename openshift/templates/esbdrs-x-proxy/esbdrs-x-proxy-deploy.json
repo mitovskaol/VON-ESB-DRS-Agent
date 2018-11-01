@@ -292,7 +292,7 @@
       "displayName": "Agent Host Name",
       "description": "The name of the von-x agent associated with this proxy.",
       "required": true,
-      "value": "onbis-x-agent"
+      "value": "esbdrs-x-agent"
     },
     {
       "name": "AGENT_PORT",
