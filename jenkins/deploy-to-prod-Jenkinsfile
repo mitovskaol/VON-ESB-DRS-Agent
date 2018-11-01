@@ -8,6 +8,7 @@ def DESTINATION_TAG = 'prod'
 def APP_NAMES = [
   'postgresql', 
   'esbdrs-x-agent',
+  'esbdrs-x-proxy',
   'backup']
 
 node {
