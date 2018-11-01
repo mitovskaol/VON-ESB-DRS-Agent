@@ -45,7 +45,7 @@ issuers:
             input: registration_id
             from: claim
           type:
-            input: foreign-worker-registration
+            input: registration
             from: value
         mapping:
           - model: category
