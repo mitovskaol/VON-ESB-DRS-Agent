@@ -129,42 +129,6 @@
                     "value": "${BACKUP_PERIOD}"
                   },
                   {
-                    "name": "EVENT_DB_USER",
-                    "valueFrom": {
-                      "secretKeyRef": {
-                        "name": "${EVENT_DB_HOST_NAME}",
-                        "key": "database-user"
-                      }
-                    }
-                  },
-                  {
-                    "name": "EVENT_DB_PASSWORD",
-                    "valueFrom": {
-                      "secretKeyRef": {
-                        "name": "${EVENT_DB_HOST_NAME}",
-                        "key": "database-password"
-                      }
-                    }
-                  },
-                  {
-                    "name": "MARA_DB_USER",
-                    "valueFrom": {
-                      "secretKeyRef": {
-                        "name": "${MARA_DB_HOST_NAME}",
-                        "key": "database-user"
-                      }
-                    }
-                  },
-                  {
-                    "name": "MARA_DB_PASSWORD",
-                    "valueFrom": {
-                      "secretKeyRef": {
-                        "name": "${MARA_DB_HOST_NAME}",
-                        "key": "database-password"
-                      }
-                    }
-                  },
-                  {
                     "name": "WALLET_DB_USER",
                     "valueFrom": {
                       "secretKeyRef": {
@@ -241,20 +205,6 @@
       "value": "dev"
     },
     {
-      "name": "EVENT_DB_HOST_NAME",
-      "displayName": "Event Database Hostname",
-      "description": "The name associated to the event database deployment resources.  In particular, this is used to wire up the credentials associated to the database.",
-      "required": true,
-      "value": "event-db"
-    },
-    {
-      "name": "MARA_DB_HOST_NAME",
-      "displayName": "Mara Database Hostname",
-      "description": "The name associated to the mara database deployment resources.  In particular, this is used to wire up the credentials associated to the database.",
-      "required": true,
-      "value": "mara-db"
-    },
-    {
       "name": "WALLET_DB_HOST_NAME",
       "displayName": "Wallet Database Hostname",
       "description": "The name associated to the wallet database deployment resources.  In particular, this is used to wire up the credentials associated to the database.",
@@ -301,7 +251,7 @@
       "displayName": "Number of Monthly Backups to Retain",
       "description": "The number of monthly backup files to be retained.  Used for the `rolling` backup strategy.",
       "required": false,
-      "value": "0"
+      "value": ""
     },
     {
       "name": "BACKUP_PERIOD",
