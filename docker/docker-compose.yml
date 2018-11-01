@@ -1,7 +1,7 @@
 version: '3'
 services:
 
-  caddy:
+  caddy2:
     build:
       context: ../esbdrs-x
       dockerfile: Dockerfile.caddy
@@ -20,8 +20,8 @@ services:
     ports:
       - ${WEB_HTTP_PORT:-5000}:${WEB_HOST_PORT:-8080}
     volumes:
-      - caddy-data:/root/.caddy
-      - caddy-logs:/srv/logs
+      - caddy2-data:/root/.caddy
+      - caddy2-logs:/srv/logs
 
   esbdrs-agent:
     build:
@@ -79,8 +79,8 @@ services:
       - esbdrs-wallet-db:/var/lib/pgsql/data
 
 volumes:
-  caddy-data:
-  caddy-logs:
+  caddy2-data:
+  caddy2-logs:
   esbdrs-agent-wallet:
   esbdrs-wallet-db:
 
