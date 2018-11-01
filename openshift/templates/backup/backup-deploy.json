@@ -350,7 +350,7 @@
       "displayName": "Persistent Volume Class name",
       "description": "The class of the volume; gluster-file, gluster-block, gluster-file-db",
       "required": false,
-      "value": ""
+      "value": "gluster-file"
     },
     {
       "name": "CPU_REQUEST",
