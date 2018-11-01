@@ -6,7 +6,7 @@
 NAME=esbdrs-x-proxy
 GIT_REPO_URL=https://github.com/bcgov/VON-ESB-DRS-Agent.git
 GIT_REF=master
-SOURCE_CONTEXT_DIR=
+SOURCE_CONTEXT_DIR=esbdrs-x
 OUTPUT_IMAGE_TAG=latest
 DOCKER_FILE_PATH=esbdrs-x/Dockerfile.caddy
 CPU_LIMIT=0
