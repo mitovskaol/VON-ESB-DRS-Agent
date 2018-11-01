@@ -1,0 +1,15 @@
+#=========================================================
+# OpenShift template parameters for:
+# Component: .
+# Template File: templates/esbdrs-x-agent/esbdrs-x-agent-build.json
+#=========================================================
+NAME=esbdrs-x-agent
+GIT_REPO_URL=https://github.com/bcgov/VON-ESB-DRS-Agent.git
+GIT_REF=master
+SOURCE_CONTEXT_DIR=esbdrs-x
+OUTPUT_IMAGE_TAG=latest
+DOCKER_FILE_PATH=Dockerfile
+CPU_LIMIT=0
+MEMORY_LIMIT=0Mi
+CPU_REQUEST=0
+MEMORY_REQUEST=0Mi
