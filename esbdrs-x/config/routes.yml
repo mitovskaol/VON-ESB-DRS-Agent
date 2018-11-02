@@ -35,6 +35,7 @@ forms:
         required: false
 
     mapping:
+      attributes:
         - name: effective_date
           from: helper
           source: now
