@@ -1,0 +1,43 @@
+@startuml
+autonumber
+User -> Saleforce : Create New Request
+User <- Saleforce : Redirect To Company Lookup Page
+User -> Saleforce : Enter Company Name
+
+Saleforce -> ESBDSR_VonXAgent: Send Autocomplete Request
+ESBDSR_VonXAgent -> TheOrgBook : Send Autocomplete Request
+ESBDSR_VonXAgent <- TheOrgBook : Return Autocomplete Response
+Saleforce <- ESBDSR_VonXAgent : Return Autocomplete Response
+User <- Saleforce : Return Autocomplete Response
+
+User -> Saleforce : Send Select Company Request 
+Saleforce -> ESBDSR_VonXAgent: Send Retrieve Company Registration Details Request
+ESBDSR_VonXAgent -> TheOrgBook : Send Retrieve Company Registration Details Request
+ESBDSR_VonXAgent <- TheOrgBook : Return Company Registration Details Response
+Saleforce <- ESBDSR_VonXAgent : Return Company Registration Details Request
+User <- Saleforce : Return Company Registration Details Response
+
+User -> Saleforce : Send Submit Application Request
+User <- Saleforce : Return Application Receipt Confirmation Response
+
+BCGov <- Saleforce: Notify of Submitted Application
+BCGov -> Saleforce : Send Retrieve Application Request
+BCGov <- Saleforce : Return Application Request
+BCGov -> BCGov: Review Application Eligibility
+BCGov -> Saleforce : Send Verify Business Registration Credential Request
+Saleforce -> ESBDSR_VonXAgent : Send Verify Business Registration Credential Request
+ESBDSR_VonXAgent -> TheOrgBook: Send Proof Request for Business Registration Credential Request
+ESBDSR_VonXAgent <- TheOrgBook : Return Business Registration Credential Proof Response
+ESBDSR_VonXAgent -> SovrinLedger : Send Credential Verification Request
+ESBDSR_VonXAgent <- SovrinLedger : Return Credential Verification Response (success)
+Saleforce <- ESBDSR_VonXAgent : Return Verify Business Registration Credential Response
+BCGov <- Saleforce : Return Verify Business Registration Credential Response
+BCGov -> Saleforce : Send Approve Application Request
+Saleforce -> ESBDSR_VonXAgent : Send Issue Temporary Foreign Worker Permit Request
+ESBDSR_VonXAgent -> TheOrgBook : Send Issue Temporary Foreign Worker Permit Credential Request
+ESBDSR_VonXAgent <- TheOrgBook: Return Issue Credential Response (success)
+Saleforce <- ESBDSR_VonXAgent : Return Issue Temporary Foreign Worker Permit Response
+BCGov <- Saleforce : Return Approve Application Response
+BCGov -> User: Notify of Approved Application
+
+@enduml
