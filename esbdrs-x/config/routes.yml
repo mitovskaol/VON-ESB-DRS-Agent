@@ -13,6 +13,10 @@ forms:
     js_includes:
       - src: js/bc_registries.js
 
+    proof_request:
+      id: registration
+      connection_id: esbdrs
+
     fields:
       - name: registration_id
         label: Company Number
