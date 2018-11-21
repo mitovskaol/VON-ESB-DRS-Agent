@@ -15,7 +15,7 @@ forms:
 
     proof_request:
       id: registration
-      connection_id: esbdrs
+      connection_id: bctob
 
     fields:
       - name: registration_id
