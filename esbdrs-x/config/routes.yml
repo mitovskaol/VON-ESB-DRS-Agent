@@ -13,6 +13,10 @@ forms:
     js_includes:
       - src: js/bc_registries.js
 
+    proof_request:
+      id: registration
+      connection_id: bctob
+
     fields:
       - name: registration_id
         label: Company Number
@@ -35,6 +39,7 @@ forms:
         required: false
 
     mapping:
+      attributes:
         - name: effective_date
           from: helper
           source: now
